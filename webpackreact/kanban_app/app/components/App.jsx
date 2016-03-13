@@ -28,7 +28,9 @@ class App extends React.Component {
         return (
         	<div>
         		<button onClick={this.addNote}>+</button>
-        		<Notes notes={notes} onEdit={this.editNode}/>
+        		<Notes notes={notes}
+        			onEdit={this.editNode}
+        			onDelete={this.deleteNote} />
         	</div>
     	);
     }
@@ -70,6 +72,13 @@ class App extends React.Component {
     		return note;
     	});
     	this.setState({notes});
+    };
+    deleteNote = (id, e) => {
+    	e.stopPropogation();
+
+    	this.setState({
+    		notes: this.state.notes.filter(note => note.id !== id)
+    	});
     };
 }
 
