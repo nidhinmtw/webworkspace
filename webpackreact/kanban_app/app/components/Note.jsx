@@ -16,17 +16,17 @@ class Note extends React.Component {
 		return this.renderNote();
 	}
 	renderEdit = () => {
-		return <input type='text' 
-			ref={
-				(e) => e ? e.selectionStart = this.props.task.length : null;
-			}
-			autoFocus={true}
-			defaultValue ={this.props.task}
-			onBlur={this.finishEdit}
-			onKeyPress={this.checkEnter}/>
+		return <input type="text"
+	      ref={
+	        (e) => e ? e.selectionStart = this.props.task.length : null
+	      }
+	      autoFocus={true}
+	      defaultValue={this.props.task}
+	      onBlur={this.finishEdit}
+	      onKeyPress={this.checkEnter} />;
 	};
 	renderNote = () => {
-		return <div onClick+{this.edit}>{this.props.task}</div>
+		return <div onClick={this.edit}>{this.props.task}</div>
 	};
 	edit = () => {
 		this.setState({
