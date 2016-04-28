@@ -27,7 +27,7 @@ class App extends React.Component {
     	const notes = this.state.notes;
         return (
         	<div>
-        		<button onClick={this.addNote}>+</button>
+        		<button className="add-note" onClick={this.addNote}>+</button>
         		<Notes notes={notes}
         			onEdit={this.editNode}
         			onDelete={this.deleteNote} />
@@ -74,7 +74,7 @@ class App extends React.Component {
     	this.setState({notes});
     };
     deleteNote = (id, e) => {
-    	e.stopPropogation();
+    	e.stopPropagation();
 
     	this.setState({
     		notes: this.state.notes.filter(note => note.id !== id)
